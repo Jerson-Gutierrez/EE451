@@ -20,10 +20,6 @@ int main(int argc, char* argv[]){
 			C[i][j] = (double)0; 
 		}
 	}
-
-
-
-	
 	double time;
 	cout<<"2"<<endl; 
 	if(clock_gettime(CLOCK_REALTIME, &start) == -1) perror("clock gettime");

@@ -6,7 +6,7 @@ int main(void){
 		int i, j, k;
 		struct timespec start, stop; 
 		double time;
-		int n = 4096; // matrix size is n*n
+		int n = 1024; // matrix size is n*n
 		
 		double **A = (double**) malloc (sizeof(double*)*n);
 		double **B = (double**) malloc (sizeof(double*)*n);
@@ -16,7 +16,6 @@ int main(void){
 			B[i] = (double*) malloc(sizeof(double)*n);
 			C[i] = (double*) malloc(sizeof(double)*n);
 		}
-		
 		for (i=0; i<n; i++){
 			for(j=0; j< n; j++){
 				A[i][j]=i;
@@ -24,13 +23,20 @@ int main(void){
 				C[i][j]=0;			
 			}
 		}
+
 				
 		if( clock_gettime(CLOCK_REALTIME, &start) == -1) { perror("clock gettime");}
 		
 		// Your code goes here //
 		// Matrix C = Matrix A * Matrix B //	
 		//*******************************//
-		
+		for(int i = 0; i < n; i++){
+			for(int j = 0; j < n; j++){
+				for(int k = 0; k<n; k++){
+					C[i][j] = C[i][j] + (A[i][k]* B[k][j] );
+				}
+			}
+		}
 		
 		//*******************************//
 		

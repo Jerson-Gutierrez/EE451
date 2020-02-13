@@ -77,7 +77,7 @@ int main(int argc, char** argv){
 	//  Your code goes here (you may define functions outside of main)
 	rc = pthread_create(&threads[0], NULL, producer, (void *) &thread_data_array[0] );
 	if (rc) { printf("ERROR; return code from pthread_create() is %d\n", rc); exit(-1);}
-	rc = pthread_create(&threads[1], NULL, producer, (void *) &thread_data_array[1] );
+	rc = pthread_create(&threads[1], NULL, consumer, (void *) &thread_data_array[1] );
 	if (rc) { printf("ERROR; return code from pthread_create() is %d\n", rc); exit(-1);}
 	rc = pthread_create(&threads[2], NULL, consumer, (void *) &thread_data_array[2] );
 	if (rc) { printf("ERROR; return code from pthread_create() is %d\n", rc); exit(-1);}

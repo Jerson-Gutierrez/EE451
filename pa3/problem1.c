@@ -4,7 +4,7 @@
 #include <omp.h>
 
 int main(void){          // this example is about multiplying a 4096*4096 matrix with a vector
-  int i, j;
+  int i, j,k;
   int n = 4096;
   struct timespec start, stop;
   double time;
@@ -29,9 +29,9 @@ int main(void){          // this example is about multiplying a 4096*4096 matrix
   omp_set_num_threads(1);
   // matrix * vector
   #pragma omp parallel for
-  for(int i = 0; i < n; i++){
-      for(int j = 0; j < n; j++){
-        for(int k = 0; k<n; k++){
+  for( i = 0; i < n; i++){
+      for( j = 0; j < n; j++){
+        for(k = 0; k<n; k++){
           C[i][j] = C[i][j] + (A[i][k]* B[k][j] );
       }
     }

@@ -26,7 +26,7 @@ int main(void){          // this example is about multiplying a 4096*4096 matrix
   }
   if( clock_gettime( CLOCK_REALTIME, &start) == -1 ) { perror( "clock gettime" );}
   //need to run with 1, 2, 4, and 8 threads
-  omp_set_num_threads(1);
+  omp_set_num_threads(2);
   // matrix * vector
   #pragma omp parallel for
   for( i = 0; i < n; i++){

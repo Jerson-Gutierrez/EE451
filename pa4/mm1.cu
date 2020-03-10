@@ -13,9 +13,9 @@ __global__ void matrix_mult(int *a, int *b, int *c){
 
 	int c_val = 0;
 	for (int i = 0; i<WIDTH; i++) {
-		c_val += /*your code here*/;
+		c_val += a[row *WIDTH + i] * b[col * WIDTH + i];
 	}
-	c[/*your code here*/] = c_val;
+	c[row * WIDTH + col] = c_val;
 }
 
 int main(){

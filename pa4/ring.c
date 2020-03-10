@@ -22,7 +22,7 @@ int main(int argc, char const *argv[])
 		printf("MSG = %d\n", msg);
 		msg++;
 		// send to 2
-		MPI_Send(msg&, 1, MPI_INT, 2, 1, MPI_COMM_WORLD);
+		MPI_Send(&msg, 1, MPI_INT, 2, 1, MPI_COMM_WORLD);
 	} else if (myrank == 2) {
 		// recv from 2
 		MPI_Recv(&msg, 1, MPI_INT, 1, 2, MPI_COMM_WORLD, MPI_STATUS_IGNORE );

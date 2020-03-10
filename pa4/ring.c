@@ -34,6 +34,7 @@ int main(int argc, char const *argv[])
 		// recv from 3
 		MPI_Recv(&msg, 1, MPI_INT, 2, 2, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 		// print msg
+		msg++;
 		printf("MSG = %d\n", msg);
 	}
 	MPI_Finalize();

@@ -17,9 +17,9 @@ def mapToCluster(data, means):
 def updatemeans(data1, data2):
 	#data1,data2 -> tuple of format (meanvalue, count)
 	#give (avg1, n1), (avg2, n2), new average will be (n1*avg1 + n2*avg2)/(n1+n2)
-	print data1
-	print data2
-	return data1
+	newcount = data1[1] + data2[1]
+	newavg = (data1[1] * data1[0] + data2[1] * data2[0])/ newcount
+	return (newavg,newcount)
 
 if __name__ == "__main__":
 	if len(sys.argv) != 3:

@@ -1,4 +1,3 @@
-
 import sys
 from pyspark import SparkContext
 
@@ -7,11 +6,13 @@ def mapToCluster(data, means):
 	#means -> list of the mean values.
 	#return the mean value to which this data point belongs to
 	temp = 9999999
+	rtrMean = 0
 	for i in means:
 		distance = abs(i - data)
 		if(distance < temp):
 			temp = distance
-	return temp
+			rtrMean = i;
+	return rtrMean
 
 def updatemeans(data1, data2):
 	#data1,data2 -> tuple of format (meanvalue, count)

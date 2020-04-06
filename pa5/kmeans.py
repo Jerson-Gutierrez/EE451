@@ -8,7 +8,7 @@ def mapToCluster(data, means):
 	temp = 9999999
 	rtrMean = 0
 	for i in means:
-		distance = abs(i - data)
+		distance = abs(float(i) - float(data))
 		if(distance < temp):
 			temp = distance
 			rtrMean = i;
